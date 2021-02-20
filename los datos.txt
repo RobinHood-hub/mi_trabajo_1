@@ -1,0 +1,2 @@
+El id es: 120, el nombre es: Robinson, y la cedula es: 120125
+El promedio es 4
