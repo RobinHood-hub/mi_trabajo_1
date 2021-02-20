@@ -45,7 +45,7 @@ if(argv.m || argv.l || argv.p) {
     console.log('Por favor, ingreses el numero de programacion: -p ');
 }*/
 
-if(argv.id || argv.nom || argv.c){
+if(argv.i || argv.n || argv.c){
     console.log('El id es: '+argv.i+', el nombre es: '+argv.n+', y la cedula es: '+argv.c);
 
 }/* else if(!argv.id){
