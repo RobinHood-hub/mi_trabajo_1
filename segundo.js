@@ -32,10 +32,13 @@ const argv = require('yargs')
             .command('datos', 'Los datos personales', listas)
             .command('estudiante', 'mostra los curso y notas del estudiante', cursos)
             .argv;
+const express= require('express');
+const app = express();
+var texto = '';
 
 if(argv.m || argv.l || argv.p) {
 
-    console.log('El promedio es '+ (argv.m+argv.l+argv.p)/3);
+    texto+=('El promedio es '+ (argv.m+argv.l+argv.p)/3);
 
 }/* else if(!argv.m){
     console.log('Por favor, ingreses el numero de matematica: -m');
@@ -46,7 +49,7 @@ if(argv.m || argv.l || argv.p) {
 }*/
 
 if(argv.i || argv.n || argv.c){
-    console.log('El id es: '+argv.i+', el nombre es: '+argv.n+', y la cedula es: '+argv.c);
+    texto+=('El id es: '+argv.i+', el nombre es: '+argv.n+', y la cedula es: '+argv.c);
 
 }/* else if(!argv.id){
     console.log('Por favor, ingreses el numero de ID: -id');
@@ -56,6 +59,9 @@ if(argv.i || argv.n || argv.c){
     console.log('Por favor, ingreses el numero de cedula: -p ');
 }*/
 
+//------------------------------------------------------------------
+
+/*
 const fs = require('fs');
 
 const crearArchivos = (listas, cursos) => {
@@ -69,3 +75,10 @@ const crearArchivos = (listas, cursos) => {
 
 crearArchivos(listas, cursos);
 
+*/
+
+app.get('/', function(req, res){
+    res.send(texto);
+});
+
+app.listen(3000);
